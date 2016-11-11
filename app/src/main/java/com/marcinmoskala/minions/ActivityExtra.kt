@@ -3,7 +3,7 @@
 package com.marcinmoskala.minions
 
 import android.app.Activity
-import android.app.Fragment
+import android.support.v4.app.Fragment
 import android.os.Parcelable
 import java.io.Serializable
 import kotlin.LazyThreadSafetyMode.NONE
