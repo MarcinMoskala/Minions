@@ -1,19 +1,19 @@
-apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
+apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
 
-group='com.github.marcinmoskala'
+group = 'com.github.marcinmoskala'
+version = '0.01'
+
+apply plugin: 'kotlin-android'
 
 android {
     compileSdkVersion 25
     buildToolsVersion "24.0.3"
     defaultConfig {
-        applicationId "com.marcinmoskala.minions"
         minSdkVersion 18
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
         release {
@@ -30,8 +30,4 @@ dependencies {
     compile 'com.android.support:appcompat-v7:25.0.0'
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     compile group: 'joda-time', name: 'joda-time', version: '2.3'
-}
-
-repositories {
-    mavenCentral()
 }
