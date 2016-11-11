@@ -3,7 +3,6 @@ apply plugin: 'kotlin-android'
 apply plugin: 'com.github.dcendents.android-maven'
 
 group='com.github.marcinmoskala'
-rootProject.name = 'Minions'
 
 android {
     compileSdkVersion 25
