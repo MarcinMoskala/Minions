@@ -1,4 +1,4 @@
-package com.docplanner.doctor.androidextensions.recycler
+package com.marcinmoskala.minions.recycler
 
 import android.support.v7.widget.RecyclerView
 import android.view.View

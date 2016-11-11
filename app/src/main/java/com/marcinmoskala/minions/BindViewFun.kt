@@ -1,6 +1,6 @@
 @file:Suppress("UNCHECKED_CAST")
 
-package com.docplanner.doctor.common
+package com.marcinmoskala.minions
 
 import android.app.Activity
 import android.app.Dialog
