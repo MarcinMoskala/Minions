@@ -17,5 +17,5 @@ fun Activity.extraInt(key: String, default: Int = -1): Lazy<Int> = lazy(NONE) { 
 fun Activity.extraDateTime(key: String, default: DateTime? = null): Lazy<DateTime> = lazy(NONE) { intent?.extras?.getString(key)?.parseDateTime() ?: default ?: throw Error("No value $key") }
 fun Activity.stringExtra(key: String, default: String? = null): Lazy<String> = lazy(NONE) { intent?.extras?.getString(key) ?: default ?: throw Error("No value $key") }
 
-fun <T : Parcelable> Fragment.extra(key: String, default: T? = null) = lazy(NONE) { arguments?.getParcelable<T>(key) ?: default }
-fun Fragment.extraLocalDate(key: String, default: LocalDate? = null) = lazy(NONE) { arguments?.getCharSequence(key).toString().parseLocalDate() ?: default }
+fun <T : Parcelable> Fragment.extra(key: String, default: T? = null): Lazy<T> = lazy(NONE) { arguments?.getParcelable<T>(key) ?: default ?: throw Error("No value $key") }
+fun Fragment.extraLocalDate(key: String, default: LocalDate? = null): Lazy<LocalDate> = lazy(NONE) { arguments?.getCharSequence(key).toString().parseLocalDate() ?: default ?: throw Error("No value $key") }
