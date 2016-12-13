@@ -63,7 +63,7 @@ class PreferenceFieldBinder<T : Any>(val clazz: KClass<T>, val default: T?, val 
             when (clazz.simpleName) {
                 "Long" -> putLong(getKey(property), value as Long)
                 "Int" -> putInt(getKey(property), value as Int)
-                "String" -> putString(getKey(property), value.toJson())
+                "String" -> putString(getKey(property), value as String?)
                 "Boolean" -> putBoolean(getKey(property), value as Boolean)
                 else -> putString(getKey(property), value.toJson())
             }
