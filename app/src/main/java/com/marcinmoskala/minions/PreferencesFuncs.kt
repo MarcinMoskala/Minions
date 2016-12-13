@@ -5,26 +5,21 @@ import com.google.gson.FieldNamingPolicy
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.google.gson.JsonSyntaxException
-import org.joda.time.DateTime
-import org.joda.time.LocalDate
 import kotlin.properties.ReadWriteProperty
 import kotlin.reflect.KClass
 import kotlin.reflect.KProperty
 
-private val gson: Gson by lazy {
-    LowercaseEnumTypeAdapterFactory()
-    GsonBuilder()
-            .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
-            .registerTypeAdapterFactory(LowercaseEnumTypeAdapterFactory())
-            .create()
-}
+var globalGson: Gson = GsonBuilder()
+        .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
+        .registerTypeAdapterFactory(LowercaseEnumTypeAdapterFactory())
+        .create()
 
-fun Any?.toJson() = if(this == null) null else gson.toJson(this)
+fun Any?.toJson() = if (this == null) null else globalGson.toJson(this)
 
-inline fun <reified T: Any> String.fromJson() = fromJson(T::class)
+inline fun <reified T : Any> String.fromJson() = fromJson(T::class)
 
-fun <T: Any> String.fromJson(clazz: KClass<T>) = try {
-    gson.fromJson(this, clazz.java)
+fun <T : Any> String.fromJson(clazz: KClass<T>) = try {
+    globalGson.fromJson(this, clazz.java)
 } catch (e: JsonSyntaxException) {
     logError(e, "Error in parsing \"$this\" to ${clazz.java}")
     null
