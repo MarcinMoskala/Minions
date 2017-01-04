@@ -61,13 +61,13 @@ fun fillIntentArguments(intent: Intent, params: List<Pair<String, Any>>) {
     }
 }
 
-inline fun <reified T: Activity> Context.bundleFor(vararg params: Pair<String, Any?>): Bundle {
+fun bundleWith(vararg params: Pair<String, Any?>): Bundle {
     val bundle = Bundle()
     if (params.isNotEmpty()) fillBundleArguments(bundle, params.filter { it.second != null }.map { it.first to it.second!! })
     return bundle
 }
 
-fun fillBundleArguments(bundle: Bundle, params: List<Pair<String, Any>>) {
+private fun fillBundleArguments(bundle: Bundle, params: List<Pair<String, Any>>) {
     params.forEach {
         val value = it.second
         when (value) {
