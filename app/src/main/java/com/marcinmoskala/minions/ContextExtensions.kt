@@ -1,5 +1,6 @@
 package com.marcinmoskala.minions
 
+import android.app.AlarmManager
 import android.app.NotificationManager
 import android.content.Context
 import android.content.SharedPreferences
@@ -14,3 +15,6 @@ val Context.inflater: LayoutInflater
 
 val Context.notificationManager: NotificationManager
     get() = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+
+val Context.alarmManager: AlarmManager
+    get() = getSystemService(Context.ALARM_SERVICE) as AlarmManager

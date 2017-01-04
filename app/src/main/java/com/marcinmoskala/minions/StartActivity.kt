@@ -6,6 +6,9 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Parcelable
 import java.io.Serializable
+import android.app.AlarmManager
+
+
 
 inline fun <reified T : Activity> Activity.switchToActivity(vararg params: Pair<String, Any>) {
     startActivity<T>(*params)
@@ -21,7 +24,7 @@ inline fun <reified T: Activity> Context.startActivity(vararg params: Pair<Strin
     startActivity(intentFor<T>(*params))
 }
 
-inline fun <reified T: Activity> Context.intentFor(vararg params: Pair<String, Any?>): Intent {
+inline fun <reified T: Any> Context.intentFor(vararg params: Pair<String, Any?>): Intent {
     val intent = Intent(this, T::class.java)
     if (params.isNotEmpty()) fillIntentArguments(intent, params.filter { it.second != null }.map { it.first to it.second!! })
     return intent
