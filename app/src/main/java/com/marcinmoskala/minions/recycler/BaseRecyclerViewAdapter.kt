@@ -41,4 +41,12 @@ open class BaseRecyclerViewAdapter<in T : ItemAdapter<out BaseViewHolder>>(priva
         items.add(index, to)
         notifyItemChanged(index)
     }
+
+    fun replace(from: T, to: List<T>) {
+        val index = items.indexOf(from)
+        if (index == -1) return
+        items.removeAt(index)
+        items.addAll(index, to)
+        notifyItemChanged(index)
+    }
 }

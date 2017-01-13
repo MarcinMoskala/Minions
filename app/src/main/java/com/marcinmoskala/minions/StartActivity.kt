@@ -8,8 +8,6 @@ import android.os.Parcelable
 import java.io.Serializable
 import android.app.AlarmManager
 
-
-
 inline fun <reified T : Activity> Activity.switchToActivity(vararg params: Pair<String, Any>) {
     startActivity<T>(*params)
     finish()
