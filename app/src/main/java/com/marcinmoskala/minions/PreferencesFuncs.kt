@@ -9,12 +9,11 @@ import kotlin.properties.ReadWriteProperty
 import kotlin.reflect.KClass
 import kotlin.reflect.KProperty
 
-var globalGson: Gson = GsonBuilder()
-        .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
-        .registerTypeAdapterFactory(LowercaseEnumTypeAdapterFactory())
-        .create()
+var globalGson: Gson = GsonBuilder().create()
 
 fun Any?.toJson() = if (this == null) null else globalGson.toJson(this)
+
+@JvmName("toJsonNonNullable") fun Any.toJson() = globalGson.toJson(this)!!
 
 inline fun <reified T : Any> String.fromJson() = fromJson(T::class)
 
