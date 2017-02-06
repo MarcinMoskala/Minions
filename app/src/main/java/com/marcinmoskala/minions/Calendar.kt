@@ -8,7 +8,8 @@ val today = LocalDate()
 val tomorrow = LocalDate().plusDays(1)!!
 val yesterday = LocalDate().minusDays(1)!!
 
-val now = DateTime()
+val now: DateTime
+    get() = DateTime()
 
 fun listOfDays(startDate: LocalDate, endDate: LocalDate): List<LocalDate> {
     if (startDate.isAfter(endDate)) return listOf()
