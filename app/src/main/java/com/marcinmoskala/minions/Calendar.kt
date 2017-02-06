@@ -4,9 +4,14 @@ import org.joda.time.DateTime
 import org.joda.time.Days
 import org.joda.time.LocalDate
 
-val today = LocalDate()
-val tomorrow = LocalDate().plusDays(1)!!
-val yesterday = LocalDate().minusDays(1)!!
+val today: LocalDate
+    get() = LocalDate()
+
+val tomorrow: LocalDate
+    get() = LocalDate().plusDays(1)!!
+
+val yesterday: LocalDate
+    get() = LocalDate().minusDays(1)!!
 
 val now: DateTime
     get() = DateTime()
