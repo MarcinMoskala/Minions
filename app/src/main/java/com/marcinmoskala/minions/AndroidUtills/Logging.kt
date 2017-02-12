@@ -1,3 +1,5 @@
+@file:Suppress("PackageDirectoryMismatch")
+
 package com.marcinmoskala.minions
 
 import android.util.Log

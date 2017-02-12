@@ -1,4 +1,4 @@
-package com.marcinmoskala.minions
+package com.marcinmoskala.minions.jodatime
 
 import android.app.TimePickerDialog
 import android.content.Context

@@ -4,8 +4,8 @@ import android.os.Bundle
 import android.os.Parcel
 import android.os.Parcelable
 import android.support.v7.app.AppCompatActivity
-import com.marcinmoskala.minions.extra
-import com.marcinmoskala.minions.extraNullable
+import com.marcinmoskala.minions.androidutills.extra
+import com.marcinmoskala.minions.androidutills.extraNullable
 import kotlinx.android.synthetic.main.activity_main.*
 import rx.Observable
 import kotlin.properties.Delegates

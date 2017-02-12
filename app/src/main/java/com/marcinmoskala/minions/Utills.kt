@@ -13,3 +13,13 @@ fun randomString(len: Int): String {
     for (i in 1..len) sb.append(AB[random.nextInt(AB.length)])
     return sb.toString()
 }
+
+fun <K, V, R> Map<K, V>.foldRight(initial: R, operation: (K, V, R) -> R)
+        = toList().foldRight(initial, { m, r -> operation(m.first, m.second, r) })
+
+fun measureTime(f: () -> Unit) {
+    val startTime = System.currentTimeMillis()
+    f()
+    val endTime = System.currentTimeMillis()
+    println("It took " + (endTime - startTime))
+}
