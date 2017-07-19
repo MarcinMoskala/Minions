@@ -2,12 +2,13 @@ package com.marcinmoskala.minions.recycler
 
 import android.support.annotation.LayoutRes
 import android.view.View
+import android.view.ViewGroup
 
 abstract class ItemAdapter<T : BaseViewHolder>(@LayoutRes open val layoutId: Int) {
 
     var holder: T? = null
 
-    abstract fun onCreateViewHolder(itemView: View): T
+    abstract fun onCreateViewHolder(itemView: View, parent: ViewGroup): T
 
     @Suppress("UNCHECKED_CAST")
     fun onBindBaseViewHolder(holder: BaseViewHolder) {
