@@ -14,7 +14,8 @@ open class BaseRecyclerViewAdapter<in T : ItemAdapter<out BaseViewHolder>>(
 
     override final fun onCreateViewHolder(parent: ViewGroup, layoutId: Int): BaseViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(layoutId, parent, false)
-        return items.first { it.layoutId == layoutId }.onCreateViewHolder(itemView, parent)
+        val adapter = items.first { it.layoutId == layoutId }
+        return adapter.onCreateViewHolder(itemView, parent)
     }
 
     override final fun onBindViewHolder(holder: BaseViewHolder, position: Int) {
